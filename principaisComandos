@@ -1,0 +1,11 @@
+cy.visit()                       // visitar a página
+cy.title()                       // verificar titulo da página (na aba)
+cy.should('be.equal', 'string')  // verificar se determinado campo é igual a string
+cy.should('be.visible')          // verificar se o elemento está visivel
+cy.should('have.value', 'string') // verificar se o campo digitado está realmente sendo demonstrado
+cy.type()                        // digitar no campo
+cy.type('string', {delay: 0 })   // irá otimizar e digitar o texto mais rápido 
+cy.click()                       // clicar no campo
+cy.get()                         // buscar o seletor CSS
+beforeEach(function () {'teste'}); //executa o testes antes de cada cenário
+it.only                          //executa somente o cenário específico
