@@ -18,7 +18,7 @@ describe("Central de Atendimento ao Cliente TAT", function () {
     cy.get("#lastName").type("Pacheco de Matos");
     cy.get("#email").type("teste@teste.com");
     cy.get("#open-text-area").type(longText, { delay: 0 });
-    cy.contains('button', 'Enviar').click();
+    cy.contains("button", "Enviar").click();
     cy.get(".success").should("be.visible");
   });
 
@@ -83,5 +83,10 @@ describe("Central de Atendimento ao Cliente TAT", function () {
   it("envia o formuário com sucesso usando um comando customizado", function () {
     cy.fillMandatoryFieldsAndSubmit();
     cy.get(".success").should("be.visible");
+  });
+
+  //Aula 03 - Exercicio
+  it.only("seleciona um produto (YouTube) por seu texto", function () {
+    cy.get("#product").select("YouTube").should("have.value", "youtube");
   });
 });

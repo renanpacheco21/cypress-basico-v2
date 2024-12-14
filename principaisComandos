@@ -10,8 +10,13 @@ cy.click(); // clicar no campo
 cy.get(); // buscar o seletor CSS
 cy.clear(); // limpa os dados do campo
 cy.contains('seletor', 'texto') //
+cy.select('texto' ou 'value' ou 'indice') //selecionar campos em lista suspensa
+
+
 beforeEach(function () {
   "teste";
 }); //executa o testes antes de cada cenário
+
 it.only; //executa somente o cenário específico
+
 Cypress.Commands.add('nome-do-comando') //criar comando personalizado
