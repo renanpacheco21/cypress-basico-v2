@@ -11,7 +11,7 @@ cy.get(); // buscar o seletor CSS
 cy.clear(); // limpa os dados do campo
 cy.contains('seletor', 'texto') //
 cy.select('texto' ou 'value' ou 'indice') //selecionar campos em lista suspensa
-
+cy.check() //clica nos campos tipos radio e checkbox
 
 beforeEach(function () {
   "teste";

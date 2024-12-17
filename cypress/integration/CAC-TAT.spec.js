@@ -96,7 +96,16 @@ describe("Central de Atendimento ao Cliente TAT", function () {
   });
 
   //Aula 03 - Exercicio Extra 2
-  it.only("seleciona um produto (Blog) por seu índice", function () {
+  it("seleciona um produto (Blog) por seu índice", function () {
     cy.get("#product").select(1).should("have.value", "blog");
   });
+
+  //Aula 04 - Exercio
+  it("marca o tipo de atendimento Feedback", function () {
+    cy.get('input[type="radio"][value="feedback"]')
+      .check()
+      .should("have.value", "feedback");
+  });
+
+  
 });
