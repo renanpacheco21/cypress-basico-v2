@@ -159,7 +159,7 @@ describe("Central de Atendimento ao Cliente TAT", function () {
   });
 
   //Aula 06 - Exercicio Extra 2
-  it.only("seleciona um arquivo utilizando uma fixture para a qual foi dada um alias", function () {
+  it("seleciona um arquivo utilizando uma fixture para a qual foi dada um alias", function () {
     cy.fixture("example.json").as("sampleFile");
     cy.get("#file-upload")
       .selectFile("@sampleFile")
@@ -167,4 +167,16 @@ describe("Central de Atendimento ao Cliente TAT", function () {
         expect($input[0].files[0].name).to.equal("example.json");
       });
   });
+
+  //Aula 07 - Exercicio
+  it("verifica que a política de privacidade abre em outra aba sem a necessidade de um clique", function () {
+    cy.get("#privacy a").should("have.attr", "target", "_blank");
+  });
+
+  //Aula 07 - Exercicio Extra 1
+  it("acessa a página da política de privacidade removendo o target e então clicando no link", function () {
+    cy.get("#privacy a").invoke("removeAttr", "target").click();
+    cy.contains("Talking About Testing");
+  });
+
 });
