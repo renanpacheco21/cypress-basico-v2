@@ -108,12 +108,33 @@ describe("Central de Atendimento ao Cliente TAT", function () {
   });
 
   //Aula 04 - Exercicio Extra
-  it.only("marca cada tipo de atendimento", function () {
+  it("marca cada tipo de atendimento", function () {
     cy.get('input[type="radio"]')
       .should("have.length", 3)
       .each(function ($radio) {
         cy.wrap($radio).check();
         cy.wrap($radio).should("be.checked");
       });
+  });
+
+  //Aula 05 - Exercicio
+  it("marca ambos checkboxes, depois desmarca o último", function () {
+    cy.get('input[type="checkbox"]')
+      .check()
+      .should("be.checked")
+      .last()
+      .uncheck()
+      .should("not.be.checked");
+  });
+
+  //Aula 05 - Exercicio Extra
+  it.only("exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário", function () {
+    cy.get("#firstName").type("Renan");
+    cy.get("#lastName").type("Pacheco de Matos");
+    cy.get("#email").type("teste@teste.com");
+    cy.get("#phone-checkbox").check().should("be.checked");
+    cy.get("#open-text-area").type("teste");
+    cy.contains("button", "Enviar").click();
+    cy.get(".error").should("be.visible");
   });
 });
