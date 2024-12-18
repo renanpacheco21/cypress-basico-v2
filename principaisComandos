@@ -22,6 +22,9 @@ cy.clear() // limpa os dados do campo
 
 cy.select('texto' ou 'value' ou 'indice') //selecionar campos em lista suspensa
 cy.selectFile('caminho do arquivo') // selecionar arquivos
+cy.selectFile('caminho do arquivo', {action: 'drag-drop'}) // simula a seleção do arquivo de que seja arrastado
+cy.fixture('nome do arquivo') // para buscar arquivos da pasta fixtures;
+cy.as('string') // para dar uma alias (apelido)
 cy.last() //seleciona o último item
 
 cy.each() //serve para iterar por meio de um array

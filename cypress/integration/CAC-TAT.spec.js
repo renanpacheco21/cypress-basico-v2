@@ -139,12 +139,32 @@ describe("Central de Atendimento ao Cliente TAT", function () {
   });
 
   //Aula 06 - Exercicio
-  it.only("seleciona um arquivo da pasta fixtures", function () {
+  it("seleciona um arquivo da pasta fixtures", function () {
     cy.get("#file-upload")
       .should("not.have.value")
       .selectFile("./cypress/fixtures/example.json")
-      .should(function($input) {
+      .should(function ($input) {
         expect($input[0].files[0].name).to.equal("example.json");
-      })
+      });
+  });
+
+  //Aula 06 - Exercicio Extra 1
+  it("seleciona um arquivo simulando um drag-and-drop", function () {
+    cy.get("#file-upload")
+      .should("not.have.value")
+      .selectFile("./cypress/fixtures/example.json", { action: "drag-drop" })
+      .should(function ($input) {
+        expect($input[0].files[0].name).to.equal("example.json");
+      });
+  });
+
+  //Aula 06 - Exercicio Extra 2
+  it.only("seleciona um arquivo utilizando uma fixture para a qual foi dada um alias", function () {
+    cy.fixture("example.json").as("sampleFile");
+    cy.get("#file-upload")
+      .selectFile("@sampleFile")
+      .should(function ($input) {
+        expect($input[0].files[0].name).to.equal("example.json");
+      });
   });
 });
