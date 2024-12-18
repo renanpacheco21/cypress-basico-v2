@@ -9,6 +9,7 @@ cy.should("be.checked") //verificar se está marcado os checkbox
 cy.should("not.be.checked") //verifica se o checkbox não está marcado
 cy.should("have.value", "string") // verificar se o campo digitado está realmente sendo demonstrado
 cy.should("have.value", "") //verificar se o campo está vazio
+cy.should("not.have.value") //verifica se o campo está sem valor 
 cy.should("have.length", numero) //verifica tamanho 
 
 cy.type() // digitar no campo
@@ -20,6 +21,7 @@ cy.uncheck() //sempre desmarca desmarca os campos tipos radio e checkbox
 cy.clear() // limpa os dados do campo
 
 cy.select('texto' ou 'value' ou 'indice') //selecionar campos em lista suspensa
+cy.selectFile('caminho do arquivo') // selecionar arquivos
 cy.last() //seleciona o último item
 
 cy.each() //serve para iterar por meio de um array

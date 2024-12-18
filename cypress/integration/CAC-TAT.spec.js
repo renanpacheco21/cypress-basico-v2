@@ -128,7 +128,7 @@ describe("Central de Atendimento ao Cliente TAT", function () {
   });
 
   //Aula 05 - Exercicio Extra
-  it.only("exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário", function () {
+  it("exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário", function () {
     cy.get("#firstName").type("Renan");
     cy.get("#lastName").type("Pacheco de Matos");
     cy.get("#email").type("teste@teste.com");
@@ -136,5 +136,15 @@ describe("Central de Atendimento ao Cliente TAT", function () {
     cy.get("#open-text-area").type("teste");
     cy.contains("button", "Enviar").click();
     cy.get(".error").should("be.visible");
+  });
+
+  //Aula 06 - Exercicio
+  it.only("seleciona um arquivo da pasta fixtures", function () {
+    cy.get("#file-upload")
+      .should("not.have.value")
+      .selectFile("./cypress/fixtures/example.json")
+      .should(function($input) {
+        expect($input[0].files[0].name).to.equal("example.json");
+      })
   });
 });
