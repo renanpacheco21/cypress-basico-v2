@@ -7,11 +7,12 @@ cy.should("be.equal", "string") // verificar se determinado campo é igual a str
 cy.should("be.visible") // verificar se o elemento está visivel
 cy.should("be.checked") //verificar se está marcado os checkbox
 cy.should("not.be.checked") //verifica se o checkbox não está marcado
-cy.should("have.value", "string") // verificar se o campo digitado está realmente sendo demonstrado
+cy.should("have.value", "valor do campo") // verificar se o campo digitado está realmente sendo demonstrado
 cy.should("have.value", "") //verificar se o campo está vazio
 cy.should("have.attr", "nome do atributo", "valor do atributo") //verificar o valor do atributo
 cy.should("not.have.value") //verifica se o campo está sem valor 
-cy.should("have.length", numero) //verifica tamanho 
+cy.should("have.length", numero) //verifica tamanho
+cy.should("contain.text", "texto") //verifica o texto do campo
 
 cy.type() // digitar no campo
 cy.type("string", { delay: 0 }) // irá otimizar e digitar o texto mais rápido
